@@ -1,0 +1,14 @@
+name: cpf_util
+description: A lib to generate, validate and format Brazilian's CPF
+version: 0.0.1
+# author: Pedro Lemos <lemozxpedro@gmail.com>
+homepage: https://github.com/pedrolemoz/cpf_util
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
