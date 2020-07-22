@@ -1,7 +1,8 @@
 import 'dart:math' show Random;
 
-class CPF {
+class CPFUtil {
   String generate() {
+    /// This method generate a valid CPF, which is returned as a String
     final Random random = Random();
 
     List<int> buildCPF =
@@ -11,10 +12,17 @@ class CPF {
       buildCPF.add(_verifyingDigit(buildCPF));
     }
 
-    return format(buildCPF);
+    String cpf = '';
+
+    for (int i in buildCPF) {
+      cpf += i.toString();
+    }
+
+    return format(cpf);
   }
 
   int _verifyingDigit(List<int> buildCPF) {
+    /// This private method returns the verifying digit for CPF, as an integer
     int sum = 0;
     int index = buildCPF.length + 1;
 
@@ -26,12 +34,13 @@ class CPF {
     return ((sum % 11) < 2) ? 0 : 11 - (sum % 11);
   }
 
-  String format(dynamic buildCPF) {
+  String format(String buildCPF) {
+    /// This method formats the given String and returns it as a String
     List<String> getNumbers = [];
     String formattedCPF = "";
 
     for (int i = 0; i < buildCPF.length; i++) {
-      getNumbers.add(buildCPF[i].toString());
+      getNumbers.add(buildCPF[i]);
     }
 
     getNumbers.insert(3, ".");
@@ -44,6 +53,7 @@ class CPF {
   }
 
   bool validate(String insertedCPF) {
+    /// This method checks if a given CPF is valid and returns true or false
     if (insertedCPF.length < 11) {
       return false;
     }

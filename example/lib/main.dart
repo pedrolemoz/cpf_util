@@ -1,16 +1,5 @@
-# CPF Util
+import 'package:cpf_util/cpf_util.dart';
 
-A Dart package to generate, validate and format Brazilian's CPF in an easy way.
-
-### Use cases
-
-You can validate data in a `TextField`, or even format it without any effort, inside a Flutter application.
-
-Also, you can generate valid CPFs, for testing purposes.
-
-### Usage
-
-```dart
 void main() {
   final cpf = CPFUtil();
 
@@ -25,4 +14,3 @@ void main() {
   // This will format a given CPF (Must be a String)
   print(cpf.format('35275302827')); // -> 352.753.028-27
 }
-```
