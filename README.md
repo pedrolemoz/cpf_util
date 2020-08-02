@@ -2,6 +2,8 @@
 
 A Dart package to generate, validate and format Brazilian's CPF in an easy way.
 
+[![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
+
 ### Use cases
 
 You can validate data in a `TextField`, or even format it without any effort, inside a Flutter application.

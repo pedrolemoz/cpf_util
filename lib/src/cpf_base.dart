@@ -1,32 +1,33 @@
 import 'dart:math' show Random;
 
+/// A Dart package to generate, validate and format Brazilian's CPF
 class CPFUtil {
+  /// This method generate a valid CPF, which is returned as a String
   String generate() {
-    /// This method generate a valid CPF, which is returned as a String
-    final Random random = Random();
+    final random = Random();
 
-    List<int> buildCPF =
+    var buildCPF =
         List<int>.generate(9, (_) => random.nextInt(9), growable: true);
 
-    for (int i = 0; i < 2; i++) {
+    for (var i = 0; i < 2; i++) {
       buildCPF.add(_verifyingDigit(buildCPF));
     }
 
-    String cpf = '';
+    var cpf = '';
 
-    for (int i in buildCPF) {
+    for (var i in buildCPF) {
       cpf += i.toString();
     }
 
     return format(cpf);
   }
 
+  /// This private method returns the verifying digit for CPF, as an integer
   int _verifyingDigit(List<int> buildCPF) {
-    /// This private method returns the verifying digit for CPF, as an integer
-    int sum = 0;
-    int index = buildCPF.length + 1;
+    var sum = 0;
+    var index = buildCPF.length + 1;
 
-    for (int i in buildCPF) {
+    for (var i in buildCPF) {
       sum += i * index;
       index -= 1;
     }
@@ -34,12 +35,12 @@ class CPFUtil {
     return ((sum % 11) < 2) ? 0 : 11 - (sum % 11);
   }
 
+  /// This method formats the given String and returns it as a String
   String format(String buildCPF) {
-    /// This method formats the given String and returns it as a String
-    List<String> getNumbers = [];
-    String formattedCPF = "";
+    var getNumbers = <String>[];
+    var formattedCPF = "";
 
-    for (int i = 0; i < buildCPF.length; i++) {
+    for (var i = 0; i < buildCPF.length; i++) {
       getNumbers.add(buildCPF[i]);
     }
 
@@ -52,17 +53,15 @@ class CPFUtil {
     return formattedCPF;
   }
 
+  /// This method checks if a given CPF is valid and returns true or false
   bool validate(String insertedCPF) {
-    /// This method checks if a given CPF is valid and returns true or false
     if (insertedCPF.length < 11) {
       return false;
     }
 
-    insertedCPF = insertedCPF.replaceAll('.', '');
-    insertedCPF = insertedCPF.replaceAll('-', '');
+    insertedCPF = insertedCPF.replaceAll('.', '').replaceAll('-', '');
 
-    List<int> cpf =
-        List<int>.generate(11, (int index) => int.parse(insertedCPF[index]));
+    var cpf = List<int>.generate(11, (index) => int.parse(insertedCPF[index]));
 
     return _verifyingDigit(cpf.sublist(0, 9)) == cpf[9] &&
             _verifyingDigit(cpf.sublist(0, 10)) == cpf[10]

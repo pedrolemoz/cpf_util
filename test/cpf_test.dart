@@ -5,7 +5,7 @@ void main() {
   final cpf = CPFUtil();
 
   test('Should return 100 valid CPFs', () {
-    for (int i = 0; i < 100; i++) {
+    for (var i = 0; i < 100; i++) {
       expect(cpf.validate(cpf.generate()), true);
     }
   });
