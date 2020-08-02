@@ -3,6 +3,10 @@
 A Dart package to generate, validate and format Brazilian's CPF in an easy way.
 
 [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
+![GitHub repo size](https://img.shields.io/github/repo-size/pedrolemoz/cpf_util?color=40c4ff)
+[![Project Owner](https://img.shields.io/badge/owner-Pedro%20Lemos-40c4ff)](https://github.com/pedrolemoz/)
+![GitHub stars](https://img.shields.io/github/stars/pedrolemoz/cpf_util?style=social)
+[![GitHub forks](https://img.shields.io/github/forks/pedrolemoz/cpf_util?style=social)](https://github.com/pedrolemoz/cpf_util/fork)
 
 ### Use cases
 

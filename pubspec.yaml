@@ -1,6 +1,6 @@
 name: cpf_util
 description: A Dart package to generate, validate and format Brazilian's CPF in an easy way
-version: 1.0.0
+version: 1.0.1
 # author: Pedro Lemos <lemozxpedro@gmail.com>
 homepage: https://github.com/pedrolemoz/cpf_util
 
