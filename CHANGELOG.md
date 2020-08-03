@@ -2,6 +2,7 @@
 
 - Added per state verification and generation (check the docs for more info)
 - Updated documentation
+- Changed testing package
 
 ## 1.0.1
 
