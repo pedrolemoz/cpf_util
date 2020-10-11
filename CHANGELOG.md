@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Fixed errors with test package
+
 ## 1.0.2
 
 - Added per state verification and generation (check the docs for more info)
