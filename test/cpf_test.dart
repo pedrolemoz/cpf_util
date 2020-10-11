@@ -1,7 +1,6 @@
 import 'package:cpf_util/cpf_util.dart';
 import 'package:test/test.dart';
 
-
 void main() {
   final cpf = CPFUtil();
 

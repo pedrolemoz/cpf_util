@@ -7,7 +7,7 @@ homepage: https://github.com/pedrolemoz/cpf_util
 environment:
   sdk: ">=2.0.0 <3.0.0"
 
-dependencies:
-  test: ^1.15.3
+dependencies: null
 dev_dependencies:
   effective_dart: ^1.2.0
+  test: ^1.15.4
