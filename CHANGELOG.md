@@ -1,3 +1,9 @@
+## 2.0.0
+
+- Switched to null safety
+- Methods are now static
+- Minor fixes in documentation
+
 ## 1.0.3
 
 - Fixed errors with test package

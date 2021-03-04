@@ -20,7 +20,7 @@ class CPFUtil {
   /// The argument follows the table below:
   ///
   ///
-  /// 0:	Rio Grande do Sul
+  /// 0 -	Rio Grande do Sul
   ///
   /// 1 -	Distrito Federal, Goiás, Mato Grosso, Mato Grosso do Sul, Tocantins
   ///
@@ -39,7 +39,7 @@ class CPFUtil {
   /// 8 -	São Paulo
   ///
   /// 9 -	Paraná, Santa Catarina
-  String generate({int state}) {
+  static String generate({int? state}) {
     final random = Random();
 
     var buildCPF = List<int>.generate(
@@ -60,7 +60,7 @@ class CPFUtil {
   }
 
   /// This private method returns the verifying digit for CPF, as an integer
-  int _verifyingDigit(List<int> buildCPF) {
+  static int _verifyingDigit(List<int> buildCPF) {
     var sum = 0;
     var index = buildCPF.length + 1;
 
@@ -74,7 +74,7 @@ class CPFUtil {
   }
 
   /// This method formats the given String and returns it as a String
-  String format(String buildCPF) {
+  static String format(String buildCPF) {
     var getNumbers = <String>[];
     var formattedCPF = '';
 
@@ -129,7 +129,7 @@ class CPFUtil {
   /// 8 -	São Paulo
   ///
   /// 9 -	Paraná, Santa Catarina
-  bool validate(String insertedCPF, {int state}) {
+  static bool validate(String insertedCPF, {int? state}) {
     if (insertedCPF.length < 11) {
       return false;
     }
