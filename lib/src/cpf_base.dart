@@ -52,9 +52,7 @@ class CPFUtil {
       buildCPF.add(_verifyingDigit(buildCPF));
     }
 
-    var cpf = buildCPF
-        .map((e) => e.toString())
-        .reduce((value, element) => value += element);
+    var cpf = buildCPF.map((e) => e.toString()).reduce((value, element) => value += element);
 
     return format(cpf);
   }
@@ -136,11 +134,15 @@ class CPFUtil {
 
     insertedCPF = insertedCPF.replaceAll('.', '').replaceAll('-', '');
 
+    final invalidCombinations = List.generate(10, (index) => '${"$index" * 11}');
+
+    if (invalidCombinations.contains(insertedCPF)) {
+      return false;
+    }
+
     var cpf = List<int>.generate(11, (index) => int.parse(insertedCPF[index]));
 
-    return (state != null ? cpf[8] == state : true) &&
-            _verifyingDigit(cpf.sublist(0, 9)) == cpf[9] &&
-            _verifyingDigit(cpf.sublist(0, 10)) == cpf[10]
+    return (state != null ? cpf[8] == state : true) && _verifyingDigit(cpf.sublist(0, 9)) == cpf[9] && _verifyingDigit(cpf.sublist(0, 10)) == cpf[10]
         ? true
         : false;
   }
