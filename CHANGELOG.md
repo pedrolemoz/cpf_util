@@ -1,3 +1,7 @@
+# 2.0.1
+
+- Added verification for known invalid CPFs (when all digits are the same)
+
 ## 2.0.0
 
 - Switched to null safety
