@@ -1,3 +1,6 @@
+## 3.0.0
+
+- Improved code and documentation
 ## 2.0.2
 
 - Updated documentation
