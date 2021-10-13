@@ -1,3 +1,7 @@
+## 3.0.1
+
+- Added generateFrom method
+
 ## 3.0.0
 
 - Improved code and documentation
