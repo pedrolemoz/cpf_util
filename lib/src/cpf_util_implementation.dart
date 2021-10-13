@@ -31,7 +31,9 @@ class CPFUtil implements ICPFUtil {
     cpf.insert(9, _calculateVerifyingDigit(cpf));
     cpf.insert(10, _calculateVerifyingDigit(cpf));
 
-    return format(cpf.map<String>((elements) => elements.toString()).reduce((a, b) => a += b));
+    return format(cpf
+        .map<String>((elements) => elements.toString())
+        .reduce((a, b) => a += b));
   }
 
   @override
@@ -56,7 +58,9 @@ class CPFUtil implements ICPFUtil {
     cpf.insert(9, _calculateVerifyingDigit(cpf));
     cpf.insert(10, _calculateVerifyingDigit(cpf));
 
-    return format(cpf.map<String>((elements) => elements.toString()).reduce((a, b) => a += b));
+    return format(cpf
+        .map<String>((elements) => elements.toString())
+        .reduce((a, b) => a += b));
   }
 
   int _calculateVerifyingDigit(List<int> cpf) {
@@ -77,11 +81,13 @@ class CPFUtil implements ICPFUtil {
 
     cpf = cpf.replaceAll('.', '').replaceAll('-', '');
 
-    final invalidCombinations = List.generate(10, (index) => '${"$index" * 11}');
+    final invalidCombinations =
+        List.generate(10, (index) => '${"$index" * 11}');
 
     if (invalidCombinations.contains(cpf)) return false;
 
-    var parsedCPF = cpf.split('').map<int>((element) => int.parse(element)).toList();
+    var parsedCPF =
+        cpf.split('').map<int>((element) => int.parse(element)).toList();
 
     return (state != null ? parsedCPF[8] == state : true) &&
         _calculateVerifyingDigit(parsedCPF.sublist(0, 9)) == parsedCPF[9] &&
