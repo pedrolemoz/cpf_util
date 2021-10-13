@@ -32,6 +32,28 @@ abstract class ICPFUtil {
   /// https://pt.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
   String generate({int? state});
 
+  /// This method generates a valid CPF from a given list of integers,
+  /// which is returned as a String
+  ///
+  /// Usage:
+  ///
+  ///
+  /// ```dart
+  /// final cpf = CPFUtil();
+  /// // This will generate a valid CPF from a given list of integers
+  /// print(cpf.generateFrom([1, 2, 3])); // -> '123.356.111-19'
+  /// ```
+  ///
+  ///
+  /// You can check the state of a CPF by looking at the last number
+  /// before the two verifiers digits.
+  ///
+  /// All the information about the generation and the states number
+  /// can be obtained here:
+  ///
+  /// https://pt.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
+  String generateFrom(List<int> numbers);
+
   /// This method will format a given CPF, that should be a `String`
   ///
   ///

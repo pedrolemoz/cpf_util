@@ -34,6 +34,31 @@ class CPFUtil implements ICPFUtil {
     return format(cpf.map<String>((elements) => elements.toString()).reduce((a, b) => a += b));
   }
 
+  @override
+  String generateFrom(List<int> numbers) {
+    if (numbers.isEmpty) return generate();
+
+    late List<int> cpf;
+
+    if (numbers.length >= 9) {
+      cpf = numbers.sublist(0, 9).toList();
+    } else {
+      cpf = numbers.toList();
+      cpf.addAll(
+        List<int>.generate(
+          9 - numbers.length,
+          (index) => random.nextInt(9),
+          growable: true,
+        ),
+      );
+    }
+
+    cpf.insert(9, _calculateVerifyingDigit(cpf));
+    cpf.insert(10, _calculateVerifyingDigit(cpf));
+
+    return format(cpf.map<String>((elements) => elements.toString()).reduce((a, b) => a += b));
+  }
+
   int _calculateVerifyingDigit(List<int> cpf) {
     var sum = 0;
     var index = cpf.length + 1;
